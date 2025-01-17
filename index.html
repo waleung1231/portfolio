@@ -17,43 +17,44 @@
            font-family: Arial, sans-serif; 
         }
         nav {
-            display: flex; /* Use Flexbox for navigation layout */
-            justify-content: center; /* Center-align the navigation links */
-            gap: 2rem; /* Add spacing between links */
+            display: flex; 
+            justify-content: center; 
+            gap: 9rem; 
             border-bottom: 1px solid oklch(80% 3% 200); /* Light gray border below navigation */
-            padding-bottom: 0.5rem; /* Add space between links and the border */
-            margin-bottom: 2rem; /* Add space below the nav for separation */
+            padding-bottom: 0.5rem; 
+            margin-bottom: 2rem; 
         }
 
         nav ul {
-            display: contents; /* Remove default <ul> styling */
+            display: contents; 
         }
 
         nav li {
-            display: contents; /* Remove default <li> styling */
+            display: contents; 
         }
 
         nav a {
-            text-decoration: none; /* Remove underlines */
-            color: inherit; /* Inherit the text color from parent */
-            text-align: center; /* Center-align text in links */
-            padding: 0.5em 0; /* Add vertical padding to links */
-            font-size: 1rem; /* Set a consistent font size */
-            transition: border-bottom 0.3s ease, color 0.3s ease; /* Smooth transitions */
+            text-decoration: none; 
+            color: inherit; 
+            text-align: center; 
+            padding: 0.5em 0;
+            font-size: 1rem; 
+            transition: border-bottom 0.3s ease, color 0.3s ease; 
         }
 
         nav a.current {
             font-weight: bold;
-            border-bottom: 0.4em solid var(--color-accent); /* Thick border with accent color */
-            padding-bottom: 0.1em; /* Adjust for border height */
+            border-bottom: 0.4em solid var(--color-accent);
+            padding-bottom: 0.1em; 
         }
 
         /* Hover effect */
         nav a:hover {
-            border-bottom: 0.4em solid var(--color-accent); /* Accent color underline */
-            background-color: oklch(from var(--color-accent) 95% 5% h); /* Lighter background color */
-            color: black; /* Optional: Darken text */
+            border-bottom: 0.4em solid var(--color-accent);
+            background-color: oklch(from var(--color-accent) 95% 5% h); 
+            color: black; 
         }
+
     </style>
 </head>
 <body>
