@@ -3,34 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wan-Rong Leung's Contacts</title>
+    <title>My Contact</title>
+    <style>
+        :root {
+            --color-accent: oklch(65% 50% 0); /* Accent color */
+            --font-family: Arial, sans-serif; /* Base font */
+        }
+
+        body {
+            font-family: var(--font-family);
+            max-width: 100ch;
+            margin-inline: max(1em, (100% - 100ch) / 2);
+            padding: 1rem;
+            line-height: 1.5;
+            color: #333;
+            background-color: #fff;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            border-bottom: 1px solid oklch(80% 3% 200);
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        nav ul {
+            display: contents;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: inherit;
+            padding: 0.5em;
+            font-size: 1rem;
+        }
+
+        nav a.current {
+            font-weight: bold;
+            border-bottom: 0.4em solid var(--color-accent);
+        }
+
+        nav a:hover {
+            color: black;
+            background-color: oklch(from var(--color-accent) 95% 5% h);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 1em;
+            max-width: 600px;
+            margin: 0 auto;
+            background: #f9f9f9;
+            padding: 1rem;
+            border: 1px solid oklch(80% 3% 200);
+            border-radius: 8px;
+        }
+
+        label {
+            text-align: right;
+            align-self: center;
+            padding-right: 1rem;
+        }
+
+        input, textarea {
+            font: inherit;
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input:focus, textarea:focus {
+            border-color: var(--color-accent);
+            outline: none;
+            box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
+        }
+
+        button {
+            grid-column: 1 / -1;
+            background-color: var(--color-accent);
+            color: rgb(0, 0, 0);
+            border: none;
+            padding: 0.75rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            background-color: #c4c4c4;
+        }
+        button:hover {
+            background-color: #5599e2; /* Darker blue */
+        }
+    </style>
 </head>
 <body>
     <nav>
         <ul>
             <li><a href="https://waleung1231.github.io/portfolio/">Home</a></li>
             <li><a href="https://waleung1231.github.io/portfolio/projects/index.html">Projects</a></li>
-            <li><a href="https://waleung1231.github.io/portfolio/contact/index.html">Contact</a></li>
+            <li><a href="https://waleung1231.github.io/portfolio/contact/index.html" class="current">Contact</a></li>
             <li><a href="https://waleung1231.github.io/portfolio/resume/index.html">Resume</a></li>
             <li><a href="https://github.com/waleung1231" target="_blank">GitHub</a></li>
         </ul>
     </nav>
-    <h1>contact</h1>
+    <h1>My Contact</h1>
     <form action="mailto:waleung@ucsd.edu" method="POST" enctype="text/plain">
-        <label for="email">Your Email:</label>
-        <input id="email" name="email" type="email" required>
-        <br><br>
+        <label for="email">Email:</label>
+        <input id="email" name="email" type="email" placeholder="Enter your email" required>
         
         <label for="subject">Subject:</label>
-        <input id="subject" name="subject">
-        <br><br>
+        <input id="subject" name="subject" placeholder="Enter the subject" required>
         
         <label for="body">Message:</label>
-        <textarea id="body" name="body" rows="5"></textarea>
-        <br><br>
+        <textarea id="body" name="body" rows="5" placeholder="Write your message" required></textarea>
         
         <button type="submit">Send</button>
     </form>
-
 </body>
 </html>

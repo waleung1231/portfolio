@@ -4,17 +4,144 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wan-Rong Leung's Projects</title>
+    <style>
+         :root {
+            --color-accent: oklch(65% 50% 0); 
+            accent-color: var(--color-accent); 
+        }
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 100ch;
+            margin-inline: auto;
+            padding: 1rem;
+        }
+
+        nav {
+            display: flex; /* use Flexbox for navigation layout */
+            justify-content: center; 
+            gap: 2rem; 
+            border-bottom: 1px solid oklch(80% 3% 200); 
+            padding-bottom: 0.5rem; /* add space between links and the border */
+            margin-bottom: 2rem; 
+        }
+
+        nav ul {
+            display: contents; /* Remove default <ul> styling */
+        }
+
+        nav li {
+            display: contents;
+        }
+
+        nav a {
+            text-decoration: none; 
+            color: inherit; 
+            text-align: center; 
+            padding: 0.5em 0; 
+            font-size: 1rem; 
+            transition: border-bottom 0.3s ease, color 0.3s ease; 
+        }
+
+        nav a.current {
+            font-weight: bold;
+            border-bottom: 0.4em solid var(--color-accent);
+            padding-bottom: 0.1em; /* Adjust for border height */
+        }
+
+        /* Hover effect */
+        nav a:hover {
+            border-bottom: 0.4em solid var(--color-accent); 
+            background-color: oklch(from var(--color-accent) 95% 5% h);
+            color: black; 
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            line-height: 1.1; /* reduce leading for headings */
+            text-wrap: balance; 
+            margin-top: 1rem; /* add spacing */
+            margin-bottom: 0.5rem;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+
+        .projects {
+            display: grid; /* Turn .projects into a grid container */
+            grid-template-columns: repeat(auto-fill, minmax(15em, 1fr)); /* Responsive grid */
+            gap: 1.5rem; /* Space between items */
+        }
+
+        article {
+            background: #f9f9f9;
+            padding: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+    </style>
 </head>
 <body>
     <nav>
         <ul>
             <li><a href="https://waleung1231.github.io/portfolio/">Home</a></li>
-            <li><a href="https://waleung1231.github.io/portfolio/projects/index.html">Projects</a></li>
+            <li><a href="https://waleung1231.github.io/portfolio/projects/index.html" class="current">Projects</a></li>
             <li><a href="https://waleung1231.github.io/portfolio/contact/index.html">Contact</a></li>
             <li><a href="https://waleung1231.github.io/portfolio/resume/index.html">Resume</a></li>
             <li><a href="https://github.com/waleung1231" target="_blank">GitHub</a></li>
         </ul>
     </nav>
     <h1>Projects</h1>
+    <div class="projects">
+        <article>
+            <h2>Project 1</h2>
+            <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="Project 1">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </article>
+        <article>
+            <h2>Project 2</h2>
+            <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="Project 2">
+            <p>Vestibulum ante ipsum primis in faucibus orci luctus et.</p>
+        </article>
+        <article>
+            <h2>Project 3</h2>
+            <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="Project 3">
+            <p>Integer nec odio. Praesent libero. Sed cursus ante dapibus.</p>
+        </article>
+        <article>
+            <h2>Project 4</h2>
+            <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="Project 4">
+            <p>Morbi lectus risus, iaculis vel, suscipit quis, luctus non.</p>
+        </article>
+        <article>
+            <h2>Project 5</h2>
+            <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="Project 5">
+            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+        </article>
+        <article>
+            <h2>Project 6</h2>
+            <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="Project 6">
+            <p>Donec id elit non mi porta gravida at eget metus.</p>
+        </article>
+    </div>
 </body>
 </html>

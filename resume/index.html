@@ -5,6 +5,71 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Wan-Rong Leung - CV</title>
   <link rel="stylesheet" href="../styles.css">
+  <style>
+    :root {
+       --color-accent: oklch(65% 50% 0); 
+       accent-color: var(--color-accent); 
+   }
+   body {
+       font-family: Arial, sans-serif;
+       max-width: 100ch;
+       margin-inline: auto;
+       padding: 1rem;
+   }
+
+   nav {
+       display: flex; /* use Flexbox for navigation layout */
+       justify-content: center; 
+       gap: 2rem; 
+       border-bottom: 1px solid oklch(80% 3% 200); 
+       padding-bottom: 0.5rem; /* add space between links and the border */
+       margin-bottom: 2rem; 
+   }
+
+   nav ul {
+       display: contents; /* Remove default <ul> styling */
+   }
+
+   nav li {
+       display: contents;
+   }
+
+   nav a {
+       text-decoration: none; 
+       color: inherit; 
+       text-align: center; 
+       padding: 0.5em 0; 
+       font-size: 1rem; 
+       transition: border-bottom 0.3s ease, color 0.3s ease; 
+   }
+
+   nav a.current {
+       font-weight: bold;
+       border-bottom: 0.4em solid var(--color-accent);
+       padding-bottom: 0.1em; /* Adjust for border height */
+   }
+
+   /* Hover effect */
+   nav a:hover {
+       border-bottom: 0.4em solid var(--color-accent); 
+       background-color: oklch(from var(--color-accent) 95% 5% h);
+       color: black; 
+
+   }
+   main section article {
+      border: 1px solid #ccc; /* Add a border for the box */
+      border-radius: 8px; /* Rounded corners */
+      padding: 1rem; /* Inner spacing */
+      margin-bottom: 1.5rem; /* Space between articles */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+      background-color: #f9f9f9; /* Light background color for the box */
+    }
+
+    time {
+      font-style: italic;
+      color: #555;
+    }
+  </style>
 </head>
 <body>
     <nav>
