@@ -6,48 +6,53 @@
     <title>My Contact</title>
     <style>
         :root {
-            --color-accent: oklch(65% 50% 0); /* Accent color */
-            --font-family: Arial, sans-serif; /* Base font */
+            --color-accent: oklch(65% 50% 0); /* Define the main accent color */
+            accent-color: var(--color-accent); /* Use it as the default accent color */
         }
-
         body {
-            font-family: var(--font-family);
-            max-width: 100ch;
-            margin-inline: max(1em, (100% - 100ch) / 2);
-            padding: 1rem;
-            line-height: 1.5;
-            color: #333;
-            background-color: #fff;
+           max-width: 100ch; 
+           margin-inline: max(1em, (100% - 100ch) / 2);  
+           padding: 1rem;  
+           line-height: 1; 
+           font-family: Arial, sans-serif; 
         }
-
         nav {
-            display: flex;
-            justify-content: center;
-            gap: 9rem;
-            border-bottom: 1px solid oklch(80% 3% 200);
-            padding-bottom: 0.5rem;
-            margin-bottom: 2rem;
+            display: flex; 
+            justify-content: center; 
+            gap: 9rem; 
+            border-bottom: 1px solid oklch(80% 3% 200); /* Light gray border below navigation */
+            padding-bottom: 0.5rem; 
+            margin-bottom: 2rem; 
         }
 
         nav ul {
-            display: contents;
+            display: contents; 
+        }
+
+        nav li {
+            display: contents; 
         }
 
         nav a {
-            text-decoration: none;
-            color: inherit;
-            padding: 0.5em;
-            font-size: 1rem;
+            text-decoration: none; 
+            color: inherit; 
+            text-align: center; 
+            padding: 0.5em 0;
+            font-size: 1rem; 
+            transition: border-bottom 0.3s ease, color 0.3s ease; 
         }
 
         nav a.current {
             font-weight: bold;
             border-bottom: 0.4em solid var(--color-accent);
+            padding-bottom: 0.1em; 
         }
 
+        /* Hover effect */
         nav a:hover {
-            color: black;
-            background-color: oklch(from var(--color-accent) 95% 5% h);
+            border-bottom: 0.4em solid var(--color-accent);
+            background-color: oklch(from var(--color-accent) 95% 5% h); 
+            color: black; 
         }
 
         h1 {
