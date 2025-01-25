@@ -5,3 +5,35 @@ body {
     font: 100%/1.5 system-ui;
   }
   
+.color-scheme {
+    position: absolute; /* Take the switcher out of normal document flow */
+    top: 1rem;         /* Offset from the top of the page */
+    right: 1rem;       /* Offset from the right of the page */
+    font-size: 0.8rem; /* Adjust the font size to make it less prominent */
+}
+
+:root {
+  --color-accent: oklch(65% 50% 0); /* Define the accent color */
+  color-scheme: light dark; /* Enable automatic dark mode */
+}
+
+
+nav a {
+  text-decoration: none;
+  color: inherit;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav a:hover {
+  background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
+  color: var(--color-accent);
+}
+
+nav a.current {
+  font-weight: bold;
+  border-bottom: 2px solid var(--color-accent);
+}
+
+
+
