@@ -1,0 +1,75 @@
+[
+    {
+        "title": "Facial Recognition Robotic Flower",
+        "year": "2024",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Created a robotic flower using OpenCV and Raspberry Pi to recognize faces and react accordingly.",
+        "github": "https://github.com/waleung1231/roboticflower"
+    },
+    {
+        "title": "Data Science Summer Bootcamp",
+        "year": "2023",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Taught high school students Python, NumPy, and machine learning concepts."
+    },
+    {
+        "title": "Emergency Keychain Alarm",
+        "year": "2023",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Designed and built an IoT-based keychain alarm with a mobile app."
+    },
+    {
+        "title": "Sentiment Analysis for Bitcoin Market Trends",
+        "year": "2024",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Analyzed Bitcoin sentiment using YouTube and article scraping with ML models."
+    },
+    {
+        "title": "Recipe Rating Prediction Model",
+        "year": "2024",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Built a Decision Tree Classifier to predict recipe ratings."
+    },
+    {
+        "title": "Ceph Storage Cluster for In-flight Entertainment",
+        "year": "2024",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Implemented a Ceph cluster on Raspberry Pi 5s to optimize storage for in-flight media streaming."
+    },
+    {
+        "title": "Improving Women's Health Outcomes",
+        "year": "2025",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Worked on data-driven projects to improve healthcare equity for women."
+    },
+    {
+        "title": "Diversity in Physiological Data",
+        "year": "2025",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Explored how physiological datasets can be more inclusive and representative."
+    },
+    {
+        "title": "Semi-supervised Behavior Annotation",
+        "year": "2025",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Developed machine learning techniques for labeling behavioral data with minimal supervision."
+    },
+    {
+        "title": "Detection & Tracking of Pedestrians for Smart Vehicles",
+        "year": "2025",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Used AI to track and predict pedestrian behavior for autonomous vehicles."
+    },
+    {
+        "title": "Blockchain for Secure Healthcare Data",
+        "year": "2023",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Researched blockchain technology applications in healthcare privacy and security."
+    },
+    {
+        "title": "AI Ethics in Social Media Content Moderation",
+        "year": "2024",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Analyzed biases in AI moderation models used for flagging inappropriate content."
+    }
+]

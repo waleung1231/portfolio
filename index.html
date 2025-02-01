@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wan-Rong Leung: Personal site and portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <script type="module" src="global.js"></script>
+    <script src="index.js" type="module" defer></script>
     <style>
         :root {
             --color-accent: oklch(65% 50% 0); /* Define the main accent color */
@@ -17,6 +19,27 @@
            line-height: 1; 
            font-family: Arial, sans-serif; 
         }
+        .projects {
+            display: grid; /* Turn .projects into a grid container */
+            grid-template-columns: repeat(auto-fill, minmax(15em, 1fr)); /* Responsive grid */
+            gap: 1.5rem; /* Space between items */
+        }
+
+        article {
+            background: light-dark(#f9f9f9,#4e4e4e);
+            padding: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
         nav {
             display: flex; 
             justify-content: center; 
@@ -56,6 +79,29 @@
             color: black; 
         }
 
+        #profile-stats {
+            background: light-dark(#f9f9f9,#4e4e4e);
+            padding: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 1rem 0;
+            text-align: center;
+            max-width: 400px;
+            }
+
+            #profile-stats dl {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            text-align: left;
+            }
+
+            #profile-stats dt {
+            font-weight: bold;
+        }
+
+
     </style>
 </head>
 <body>
@@ -72,6 +118,15 @@
     <p>Hi, this is Wan-Rong Leung. I really enjoy cooking and going to concerts. I am a data science major student at UCSD. I really like dogs</p>
     <img src="jelly.jpg" alt="This is a picture of a blue jellyfish" />
     <p>This is a picture of a blue jellyfish</p>
-    <script type="module" src="global.js"></script>
+    <h2>Latest Projects</h2>
+    <div class="projects">
+        <!-- Projects will be inserted here -->
+    </div>
+    
+    <h2>GitHub Profile</h2>
+    <div id="profile-stats">
+        <!-- GitHub stats will be inserted here -->
+    </div>
+    
 </body>
 </html>
