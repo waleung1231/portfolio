@@ -70,11 +70,92 @@
             margin-bottom: 2rem;
         }
 
+            /* Fade out unselected slices */
+        svg:has(path:hover) path:not(:hover) {
+            opacity: 0.5;
+        }
+
+        /* Smooth transition */
+        path {
+            transition: 300ms;
+            cursor: pointer;
+        }
+
+        /* Selected Slice */
+        .selected {
+            --color: oklch(60% 45% 0) !important;
+        }
+
+        .selected:is(path) {
+            fill: var(--color);
+        }
+
+        /* Dimmed slices */
+        .dimmed {
+            opacity: 0.4;
+        }
+
+        /* Legend Styles */
+        .legend {
+            list-style: none;
+            padding: 1rem;
+            display: flex;
+            padding: 40px;
+            flex-wrap: wrap;
+            gap: 1rem;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            background-color: light-dark(#f9f9f9,#4e4e4e);
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .legend li {
+            display: flex;
+            align-items: center;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+
+        /* Dim legend when filtered */
+        .legend li.dimmed {
+            opacity: 0.4;
+        }
+
+        /* Highlight selected legend */
+        .legend li.selected {
+            --color: oklch(60% 45% 0) !important;
+        }
+
+        /* Legend Swatch */
+        .legend .swatch {
+            width: 1em;
+            height: 1em;
+            background-color: var(--color);
+            display: inline-block;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+            border: 1px solid black;
+        }
 
         .projects {
             display: grid; /* Turn .projects into a grid container */
             grid-template-columns: repeat(auto-fill, minmax(15em, 1fr)); /* Responsive grid */
             gap: 1.5rem; /* Space between items */
+        }
+
+        #projects-pie-plot {
+            max-width: 20em;
+            margin-block: 2em;
+            overflow: visible;
+        }
+
+        #projects-pie-plot path {
+        transition: transform 0.2s;
+        }
+
+        #projects-pie-plot path:hover {
+        transform: scale(1.05); /* Slight enlargement on hover */
         }
 
         article {
@@ -101,9 +182,33 @@
             font-size: 0.875rem;
             line-height: 1.5;
         }
+
+        .chart-container {
+            display: flex;
+            align-items: center; /* Vertically align chart and legend */
+            justify-content: center; /* Center items horizontally */
+            gap: 2rem; /* Add space between the chart and the legend */
+            max-width: 700px; /* Adjust width to fit well */
+            margin: auto; /* Center the container */
+        }
+
+
+
+        .searchBar {
+            width: 100%;         /* Makes it take full width of parent */
+            max-width: none;    /* Limits the maximum width */
+            height: 2.5rem;      /* Adjusts the height */
+            font-size: 1rem;     /* Makes the text inside bigger */
+            padding: 0.5rem;     /* Adds spacing inside */
+            border-radius: 8px;  /* Rounds the corners */
+            border: 3px solid gray;
+        }
+
     </style>
 </head>
+
 <body>
+
     <!-- <nav>
         <ul>
             <li><a href="https://waleung1231.github.io/portfolio/">Home</a></li>
@@ -114,6 +219,11 @@
         </ul>
     </nav> -->
     <h1 class="projects-title">Projects</h1>
+    <div class="chart-container">
+        <svg id="projects-pie-plot" viewBox="-50 -50 100 100"></svg>
+        <ul class="legend"></ul>
+    </div>
+    <input class="searchBar" type="search" aria-label="Search projects" placeholder="🔍 Search projects…" />
     <div class="projects">
         <!-- <article>
             <h2>Project 1</h2>

@@ -36,24 +36,4 @@ nav a.current {
 }
 
 
-#profile-stats {
-  background: #f9f9f9;
-  padding: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin: 1rem 0;
-  text-align: center;
-  max-width: 400px;
-}
 
-#profile-stats dl {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  text-align: left;
-}
-
-#profile-stats dt {
-  font-weight: bold;
-}

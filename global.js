@@ -118,57 +118,52 @@ export function renderProjects(project, containerElement, headingLevel = 'h2') {
         return;
     }
 
-    // Create the <article> element
-    const article = document.createElement('article');
-
-    // Validate heading level
     const validHeadingLevels = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
     if (!validHeadingLevels.includes(headingLevel)) {
         console.warn(`Invalid heading level '${headingLevel}' provided. Defaulting to 'h2'.`);
         headingLevel = 'h2';
     }
 
-    // Create the heading element
+    // Create article container
+    const article = document.createElement('article');
+
+    // Title
     const title = document.createElement(headingLevel);
-    title.textContent = project.title || "Untitled Project";
+    title.textContent = project.title;
     article.appendChild(title);
 
-    // Display the project year
-    const year = document.createElement('p');
-    year.textContent = `Year: ${project.year}`;
-    year.style.fontWeight = "bold";
-    article.appendChild(year);
+    // Image
+    const img = document.createElement('img');
+    img.src = project.image || "https://vis-society.github.io/labs/2/images/empty.svg"; // Default if missing
+    img.alt = project.title;
+    article.appendChild(img);
 
-    // Add project image (if available)
-    if (project.image) {
-        const img = document.createElement('img');
-        img.src = project.image;
-        img.alt = project.title || "Project Image";
-        img.loading = "lazy"; // Improve performance
-        article.appendChild(img);
-    } else {
-        console.warn(`No image provided for project: ${project.title}`);
-    }
-
-    // Add project description
+    // Description
     const description = document.createElement('p');
-    description.textContent = project.description || "No description available.";
+    description.textContent = project.description;
     article.appendChild(description);
 
-    // Add GitHub link (if available)
+    // Year (New)
+    if (project.year) {
+        const year = document.createElement('p');
+        year.textContent = `Year: ${project.year}`;
+        year.style.fontWeight = "bold";
+        year.style.color = "var(--color-accent)";
+        article.appendChild(year);
+    }
+
+    // GitHub Link
     if (project.github) {
         const link = document.createElement('a');
         link.href = project.github;
         link.textContent = 'GitHub Link';
         link.target = '_blank';
         article.appendChild(link);
-    } else {
-        console.warn(`No GitHub link provided for project: ${project.title}`);
     }
 
-    // Append the article to the container (do not overwrite existing content)
     containerElement.appendChild(article);
 }
+
 
 
 export async function fetchGitHubData(username) {
