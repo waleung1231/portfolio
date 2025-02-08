@@ -9,20 +9,20 @@ const svg = d3.select("#projects-pie-plot");
 const legendContainer = d3.select('.legend');
 
 let projects = [];
-let selectedYear = null; // Store selected year
-let query = ''; // Store user query for searching
+let selectedYear = null; 
+let query = ''; 
 
-// **Fetch and render projects**
+
 fetchJSON('../lib/projects.json')
     .then(fetchedProjects => {
         console.log("Fetched Projects:", fetchedProjects);
         projects = fetchedProjects;
         updateProjects(projects);
-        renderPieChart(projects); // Initial render
+        renderPieChart(projects); 
     })
     .catch(error => console.error("Error loading projects:", error));
 
-// **Step 4.2 - Search Box Filtering**
+
 if (searchInput) {
     searchInput.addEventListener('input', (event) => {
         query = event.target.value.toLowerCase();
@@ -38,9 +38,9 @@ if (searchInput) {
     console.warn("🔍 Search bar not found in DOM!");
 }
 
-// **Step 4.4 - Function to update projects list**
+
 function updateProjects(filteredProjects) {
-    projectsContainer.innerHTML = ''; // Clear old content
+    projectsContainer.innerHTML = ''; 
     if (projectsTitle) projectsTitle.textContent = `Projects (${filteredProjects.length})`;
 
     if (filteredProjects.length === 0) {
@@ -50,7 +50,7 @@ function updateProjects(filteredProjects) {
     }
 }
 
-// **Step 4.4 - Function to render pie chart dynamically**
+
 function renderPieChart(projectsGiven) {
     let rolledData = d3.rollups(
         projectsGiven,
@@ -83,7 +83,6 @@ function renderPieChart(projectsGiven) {
         .style("cursor", "pointer")
         .on("click", (_, d) => toggleFilter(d.data.label));
 
-    // Render legend with interactive filtering
     let legendItems = legendContainer.selectAll("li")
         .data(data)
         .enter()
@@ -92,22 +91,21 @@ function renderPieChart(projectsGiven) {
         .html(d => `<span class="swatch"></span> ${d.label} <em>(${d.value})</em>`)
         .on("click", (_, d) => toggleFilter(d.label));
 
-    // Function to handle click event on slices and legend
     function toggleFilter(year) {
         if (selectedYear === year) {
-            // If clicked again, reset filter
+
             selectedYear = null;
             updateProjects(projects);
-            slices.style("opacity", 1); // Restore opacity for all slices
+            slices.style("opacity", 1); 
         } else {
             selectedYear = year;
             let filteredProjects = projects.filter(project => project.year === year);
             updateProjects(filteredProjects);
-            slices.style("opacity", d => d.data.label === year ? 1 : 0.3); // Fade non-selected slices
+            slices.style("opacity", d => d.data.label === year ? 1 : 0.3); 
         }
     }
 }
-// **Update opacity for non-selected slices**
+
 function updateOpacity() {
     svg.selectAll("path").attr("opacity", d => selectedYear && d.data.label !== selectedYear ? 0.5 : 1);
 }
