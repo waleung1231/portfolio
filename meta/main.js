@@ -1,9 +1,9 @@
+import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm";
+
 let data = [];
 let commits = [];
 let xScale, yScale;
 let brushSelection = null;
-
-import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm";
 
 console.log("Main.js loaded");
 
@@ -13,21 +13,42 @@ const height = 600;
 async function loadData() {
     try {
         console.log("Loading data...");
-        data = await d3.csv('../meta/loc.csv', (row) => {
-            try {
-                return {
-                    ...row,
-                    line: Number(row.line),
-                    depth: Number(row.depth),
-                    length: Number(row.length),
-                    date: new Date(row.date + 'T00:00' + row.timezone),
-                    datetime: new Date(row.datetime),
-                };
-            } catch (e) {
-                console.error("Error parsing row:", row, e);
-                return null;
+        
+        // First check if the file exists
+        try {
+            const response = await fetch('https://raw.githubusercontent.com/waleung1231/portfolio/refs/heads/main/meta/loc.csv');
+            if (!response.ok) {
+                throw new Error(`CSV file not found. Status: ${response.status}`);
             }
-        });
+            
+            data = await d3.csv(response.url, (row) => {
+                try {
+                    return {
+                        ...row,
+                        line: Number(row.line),
+                        depth: Number(row.depth),
+                        length: Number(row.length),
+                        date: new Date(row.date + 'T00:00' + row.timezone),
+                        datetime: new Date(row.datetime),
+                    };
+                } catch (e) {
+                    console.error("Error parsing row:", row, e);
+                    return null;
+                }
+            });
+        } catch (error) {
+            // Display a user-friendly message in the stats container
+            const statsContainer = document.getElementById('stats');
+            if (statsContainer) {
+                statsContainer.innerHTML = `
+                    <div style="padding: 1em; background: #f8d7da; border: 1px solid #f5c6cb; border-radius: 4px; color: #721c24;">
+                        <h3>Data Not Available</h3>
+                        <p>The commit history data (loc.csv) is not currently available. This visualization requires commit history data to display statistics and patterns.</p>
+                    </div>
+                `;
+            }
+            throw error;
+        }
         
         console.log("Data loaded:", data.length, "rows");
         
@@ -290,7 +311,6 @@ function updateLanguageBreakdown() {
     }
 }
 
-// Keep your existing tooltip functions
 function updateTooltipContent(commit) {
     const tooltip = document.getElementById('commit-tooltip');
     const link = document.getElementById('commit-link');
@@ -330,6 +350,10 @@ function updateTooltipPosition(event) {
 function displayStats() {
     try {
         const statsContainer = d3.select('#stats').append('dl').attr('class', 'summary-stats');
+
+        if (data.length === 0) {
+            return;
+        }
 
         statsContainer.append('dt').html('Total <abbr title="Lines of code">LOC</abbr>');
         statsContainer.append('dd').text(data.length);
