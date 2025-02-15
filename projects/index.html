@@ -70,18 +70,17 @@
             margin-bottom: 2rem;
         }
 
-            /* Fade out unselected slices */
+
         svg:has(path:hover) path:not(:hover) {
             opacity: 0.5;
         }
 
-        /* Smooth transition */
         path {
             transition: 300ms;
             cursor: pointer;
         }
 
-        /* Selected Slice */
+
         .selected {
             --color: oklch(60% 45% 0) !important;
         }
@@ -90,12 +89,12 @@
             fill: var(--color);
         }
 
-        /* Dimmed slices */
+
         .dimmed {
             opacity: 0.4;
         }
 
-        /* Legend Styles */
+
         .legend {
             list-style: none;
             padding: 1rem;
@@ -117,12 +116,12 @@
             transition: opacity 0.3s;
         }
 
-        /* Dim legend when filtered */
+
         .legend li.dimmed {
             opacity: 0.4;
         }
 
-        /* Highlight selected legend */
+
         .legend li.selected {
             --color: oklch(60% 45% 0) !important;
         }

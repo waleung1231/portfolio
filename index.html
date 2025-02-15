@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="style.css">
     <script type="module" src="global.js"></script>
     <script src="index.js" type="module" defer></script>
+    <script src="meta/main.js" type="module" defer></script>
+    <link rel="stylesheet" href="./meta/stats.css">
     <style>
         :root {
             --color-accent: oklch(65% 50% 0); /* Define the main accent color */
@@ -128,5 +130,33 @@
         <!-- GitHub stats will be inserted here -->
     </div>
     
+    <div id="stats">
+        summary
+    </div>
+    <h2>Commits by time of day</h2>
+    <div id="chart"></div>
+    <div class="visualization-container">
+        <!-- Chart container -->
+        <div id="chart"></div>
+        
+        <!-- Summary statistics -->
+        <div id="stats"></div>
+        
+        <!-- Selection stats container -->
+        <div class="stats-container">
+            <p id="selection-count">No commits selected</p>
+            <dl id="language-breakdown" class="stats"></dl>
+        </div>
+        
+        <!-- Tooltip -->
+        <div id="commit-tooltip" class="tooltip" hidden>
+            <a id="commit-link" target="_blank"></a>
+            <div id="commit-date"></div>
+            <div id="commit-time"></div>
+            <div id="commit-author"></div>
+            <div id="commit-lines"></div>
+        </div>
+    </div>
+
 </body>
 </html>

@@ -1,0 +1,123 @@
+#stats {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); /* 5 equal columns */
+    border: 1px solid #d1d5db; /* Light gray border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 1.5rem; /* Padding inside */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    background: #ffffff; /* White background */
+    text-align: center; /* Center align text */
+    align-items: center;
+    font-family: Arial, sans-serif;
+    max-width: 900px; /* Adjust width */
+    margin: 1rem auto; /* Center on page */
+    align-items: center;
+}
+
+#stats dl {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 5 columns */
+    gap: 1rem; /* Space between columns */
+    text-align: center;
+}
+
+#stats dt {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #6b7280; /* Muted gray color */
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100%; /* Ensure it takes full height */
+    text-align: center; /* Ensure text itself is centered */
+}
+
+
+#stats dd {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #111827; /* Darker text for numbers */
+    margin: 0;
+}
+
+.figure-caption {
+    background: #f3f4f6; /* Light gray background */
+    padding: 0.8rem;
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: #374151;
+    border-radius: 0 0 8px 8px; /* Only round bottom corners */
+    text-align: left;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Style the gridlines to be subtle */
+.gridlines path {
+    stroke: none;
+}
+
+.gridlines line {
+    stroke: #e0e0e0;
+    stroke-opacity: 0.7;
+    stroke-dasharray: 4;
+}
+
+/* Improve axis readability */
+.axis path,
+.axis line {
+    stroke: #000;
+}
+
+.axis text {
+    font-size: 12px;
+    fill: #333;
+}
+
+/* Tooltip Container */
+.tooltip {
+    position: fixed;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 6px;
+    padding: 10px;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+    pointer-events: none;
+    transition: opacity 300ms, visibility 300ms;
+}
+
+  
+  /* Tooltip Info Layout */
+  .info {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 5px 10px;
+    font-size: 14px;
+  }
+  
+  /* Tooltip Labels */
+  .info dt {
+    font-weight: bold;
+    color: #555;
+  }
+  
+  /* Tooltip Values */
+  .info dd {
+    margin: 0;
+    color: #333;
+  }
+  
+  /* Hover Effect for Circles */
+  circle {
+    transition: fill-opacity 200ms;
+    transform-origin: center;
+    transform-box: fill-box;
+
+  }
+  
+  circle:hover {
+    transform: scale(1.5);
+    fill: orange; /* Highlight hovered point */
+  }
+  
