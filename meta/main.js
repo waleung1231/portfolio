@@ -13,7 +13,7 @@ const height = 600;
 async function loadData() {
     try {
         console.log("Loading data...");
-        data = await d3.csv('/meta/loc.csv', (row) => {
+        data = await d3.csv('../meta/loc.csv', (row) => {
             try {
                 return {
                     ...row,
